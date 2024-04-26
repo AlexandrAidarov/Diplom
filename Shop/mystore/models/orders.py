@@ -1,10 +1,10 @@
 from django.db import models
-from Shop.store.models.products import Products
-from Shop.store.models.customer import Customer
+from .products import Products
+from .customer import Customer
 import datetime
 
 
-class Order(models.Model):
+class Orders(models.Model):
     product = models.ForeignKey(Products,
                                 on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer,
@@ -21,4 +21,4 @@ class Order(models.Model):
 
     @staticmethod
     def get_orders_by_customer(customer_id):
-        return Order.objects.filter(customer=customer_id).order_by('-date')
+        return Orders.objects.filter(customer=customer_id).order_by('-date')

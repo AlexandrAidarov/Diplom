@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.hashers import check_password
-from Shop.store.models.customer import Customer
+from mystore.models.customer import Customer
 from django.views import View
 
-from Shop.store.models.products import Products
-from Shop.store.models.orders import Order
+from mystore.models.products import Products
+from mystore.models.orders import Orders
 
 
 class CheckOut(View):
@@ -19,7 +19,7 @@ class CheckOut(View):
 
         for product in products:
             print(cart.get(str(product.id)))
-            order = Order(customer=Customer(id=customer),
+            order = Orders(customer=Customer(id=customer),
                           product=product,
                           price=product.price,
                           address=address,

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
-from Shop.store.models.customer import Customer
+from mystore.models.customer import Customer
 from django.views import View
 
 

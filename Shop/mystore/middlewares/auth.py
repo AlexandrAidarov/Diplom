@@ -9,4 +9,5 @@ def auth_middleware(get_response):
         if not customer:
             return redirect('/login')
         return get_response(request)
+
     return middleware
